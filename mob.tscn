@@ -1,0 +1,68 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/themis_1.png" type="Texture" id=1]
+[ext_resource path="res://assets/themis_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/haris_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/antigoni_0.png" type="Texture" id=4]
+[ext_resource path="res://assets/mentes_0.png" type="Texture" id=5]
+[ext_resource path="res://assets/mentes_1.png" type="Texture" id=6]
+[ext_resource path="res://mob.gd" type="Script" id=7]
+[ext_resource path="res://assets/danai_1.png" type="Texture" id=8]
+[ext_resource path="res://assets/danai_0.png" type="Texture" id=9]
+[ext_resource path="res://assets/antigoni_1.png" type="Texture" id=10]
+[ext_resource path="res://assets/haris_0.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "antigoni",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "mentes",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "danai",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "haris",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "themis",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 46.5028
+height = 4.63952
+
+[node name="mob" type="RigidBody2D" groups=[
+"mobs",
+]]
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.945664, 1.1937 )
+scale = Vector2( 0.152979, 0.15242 )
+frames = SubResource( 1 )
+animation = "antigoni"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 2 )
+rotation = 1.5708
+shape = SubResource( 2 )
